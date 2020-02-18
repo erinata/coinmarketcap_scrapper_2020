@@ -14,7 +14,7 @@ for i in range(5):
 	html = response.read()
 	f.write(html)
 	f.close()
-	time.sleep(300)
+	time.sleep(10)
 
 
 

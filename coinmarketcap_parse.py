@@ -24,6 +24,7 @@ for one_file_name in glob.glob("html_files/*.html"):
 		currency_name = r.find("td", {"class":"cmc-table__cell--sort-by__name"}).find("a", {"class":"cmc-link"}).text
 		currency_marketcap = r.find("td", {"class": "cmc-table__cell--sort-by__market-cap"}).find("div").text.replace(",","").replace("$","")
 		currency_supply = r.find("td", {"class": "cmc-table__cell--sort-by__circulating-supply"}).find("div").text.replace(" *","")
+		currency_link = r.find("td", {"class":"cmc-table__cell--sort-by__name"}).find("a", {"class":"cmc-link"})["href"]
 		# print(currency_name)
 		# print(currency_price)
 		# print(currency_marketcap)
@@ -33,7 +34,8 @@ for one_file_name in glob.glob("html_files/*.html"):
 				'name': currency_name,
 				'price': currency_price,
 				'marketcap': currency_marketcap,
-				'supply': currency_supply
+				'supply': currency_supply,
+				'link': currency_link
 			}, ignore_index=True)
 
 
